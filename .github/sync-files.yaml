@@ -24,6 +24,6 @@
   files:
     - source: deploy-docs/mkdocs-requirements.txt
 
-- repository: tier4/caret_common
+- repository: takam5f2/caret_common
   files:
     - source: .cspell.json
