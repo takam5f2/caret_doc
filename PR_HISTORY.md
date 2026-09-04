@@ -108,7 +108,7 @@ The links point to the original PRs for discussion and review history.
 | #114 | docs(all): add abbreviation list | @takam5f2 | [tier4/caret_doc#114](https://github.com/tier4/caret_doc/pull/114) |
 | #115 | ci(pre-commit): autoupdate | @app/pre-commit-ci | [tier4/caret_doc#115](https://github.com/tier4/caret_doc/pull/115) |
 | #116 | fix(tutorial): modify path name corresponding to the sample architecture file. | @hsgwa | [tier4/caret_doc#116](https://github.com/tier4/caret_doc/pull/116) |
-| #117 | docs(trace points):  add service trace points | @ymski | [tier4/caret_doc#117](https://github.com/tier4/caret_doc/pull/117) |
+| #117 | docs(trace points): add service trace points | @ymski | [tier4/caret_doc#117](https://github.com/tier4/caret_doc/pull/117) |
 | #118 | docs: add design pages for runtime recording feature | @hsgwa | [tier4/caret_doc#118](https://github.com/tier4/caret_doc/pull/118) |
 | #120 | chore: sync files | @app/system-tools-actions-public | [tier4/caret_doc#120](https://github.com/tier4/caret_doc/pull/120) |
 | #121 | chore: rename original to built-in tracepoint | @hsgwa | [tier4/caret_doc#121](https://github.com/tier4/caret_doc/pull/121) |
@@ -174,7 +174,7 @@ The links point to the original PRs for discussion and review history.
 | #187 | docs: add description about multi-host system | @isp-uetsuki | [tier4/caret_doc#187](https://github.com/tier4/caret_doc/pull/187) |
 | #188 | ci(pre-commit): autoupdate | @app/pre-commit-ci | [tier4/caret_doc#188](https://github.com/tier4/caret_doc/pull/188) |
 | #189 | revert: "docs: add description about multi-host system" | @nabetetsu | [tier4/caret_doc#189](https://github.com/tier4/caret_doc/pull/189) |
-| #191 | docs: added docs for runtime tracepoints  er-diagram and its definition | @ymski | [tier4/caret_doc#191](https://github.com/tier4/caret_doc/pull/191) |
+| #191 | docs: added docs for runtime tracepoints er-diagram and its definition | @ymski | [tier4/caret_doc#191](https://github.com/tier4/caret_doc/pull/191) |
 | #192 | docs: assign remove function | @rokamu623 | [tier4/caret_doc#192](https://github.com/tier4/caret_doc/pull/192) |
 | #193 | ci(pre-commit): autoupdate | @app/pre-commit-ci | [tier4/caret_doc#193](https://github.com/tier4/caret_doc/pull/193) |
 | #194 | docs: update changelog for v0.4.10 | @nabetetsu | [tier4/caret_doc#194](https://github.com/tier4/caret_doc/pull/194) |
@@ -328,7 +328,7 @@ The links point to the original PRs for discussion and review history.
 | #345 | fix: corrected tracepoints descriptions | @xygyo77 | [tier4/caret_doc#345](https://github.com/tier4/caret_doc/pull/345) |
 | #346 | docs(changelog): update changelog for tag v0.5.6 | @h-suzuki-isp | [tier4/caret_doc#346](https://github.com/tier4/caret_doc/pull/346) |
 | #347 | docs(changelog): update changelog for tag v0.5.7 | @h-suzuki-isp | [tier4/caret_doc#347](https://github.com/tier4/caret_doc/pull/347) |
-| #348 | fix:  the malfunctioning PlantUML diagram. | @h-suzuki-isp | [tier4/caret_doc#348](https://github.com/tier4/caret_doc/pull/348) |
+| #348 | fix: the malfunctioning PlantUML diagram. | @h-suzuki-isp | [tier4/caret_doc#348](https://github.com/tier4/caret_doc/pull/348) |
 | #349 | docs(changelog): update changelog for tag v0.5.8 | @h-suzuki-isp | [tier4/caret_doc#349](https://github.com/tier4/caret_doc/pull/349) |
 | #350 | docs: add note for import error related to numpy2 release | @ymski | [tier4/caret_doc#350](https://github.com/tier4/caret_doc/pull/350) |
 | #351 | docs(changelog): update changelog for tag v0.5.9 | @h-suzuki-isp | [tier4/caret_doc#351](https://github.com/tier4/caret_doc/pull/351) |
