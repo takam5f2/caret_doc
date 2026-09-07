@@ -607,8 +607,6 @@
       
         
       
-        
-      
     
     
     
@@ -671,34 +669,6 @@
     
   
     Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../../installation/manual_installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Manual Installation
   
 
     
@@ -2417,8 +2387,6 @@
       
         
       
-        
-      
     
     
     
@@ -2521,34 +2489,6 @@
     
   
     caret_analyze
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../software_architecture/tilde/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TILDE, a framework tools to detect deadline overrun
   
 
     
@@ -3493,28 +3433,6 @@
     <span class="md-ellipsis">
       
         ros2_caret:construct_static_executor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ros2_caretadd_callback_group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ros2_caret:add_callback_group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ros2_caretadd_callback_group_static_executor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ros2_caret:add_callback_group_static_executor
       
     </span>
   </a>
@@ -4861,28 +4779,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#ros2_caretadd_callback_group" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ros2_caret:add_callback_group
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ros2_caretadd_callback_group_static_executor" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        ros2_caret:add_callback_group_static_executor
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#ros2_caretcallback_group_add_timer" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -4956,6 +4852,9 @@
 <p>"Initialization tracepoints” are tracepoints that occur mainly when <abbr title="Robot Operating System">ROS</abbr> configuration objects such as Node, Executor, and Callback are created.
 Some tracepoints share same addresses (e.g. node_handle and callback address).
 By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> constructs structures of each trace point relationship.</p>
+<blockquote>
+<p><strong>Note:</strong> This document describes the trace points for Jazzy. For Humble, refer to the documentation for v0.7.3.</p>
+</blockquote>
 <h3 id="relationships-for-each-initialization-trace-points">Relationships for each initialization trace points<a class="headerlink" href="#relationships-for-each-initialization-trace-points" title="Permanent link">#</a></h3>
 <p>Relationships of each trace point related to a single node are shown as follows.</p>
 <pre class="mermaid"><code>erDiagram
@@ -5105,12 +5004,6 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
  string executor_type_name
  }
 
- add_callback_group{
- address executor_addr
- address callback_group_addr
- string group_type_name
- }
-
  callback_group_to_executor_entity_collector{
  address entities_collector_addr
  address callback_group_addr
@@ -5119,12 +5012,6 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
  executor_entity_collector_to_executor{
  address executor_addr
  address entities_collector_addr
- }
-
- add_callback_group_static_executor{
- address entities_collector_addr
- address callback_group_addr
- string group_type_name
  }
 
  callback_group_add_timer{
@@ -5147,21 +5034,9 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
  address client_handle
  }
 
-
- construct_executor ||--o{ add_callback_group : executor_addr
- construct_static_executor ||--o{ add_callback_group_static_executor : entities_collector_addr
-
-    add_callback_group_static_executor ||--o{ callback_group_add_timer : callback_group_addr
-    add_callback_group_static_executor ||--o{ callback_group_add_subscription : callback_group_addr
-    add_callback_group_static_executor ||--o{ callback_group_add_service : callback_group_addr
-    add_callback_group_static_executor ||--o{ callback_group_add_client : callback_group_addr
     callback_group_to_executor_entity_collector ||--|| executor_entity_collector_to_executor: entities_collector_addr
     executor_entity_collector_to_executor ||--|| construct_executor: executor_addr
     executor_entity_collector_to_executor ||--|| construct_static_executor: executor_addr
-    add_callback_group ||--o{ callback_group_add_timer : callback_group_addr
-    add_callback_group ||--o{ callback_group_add_subscription : callback_group_addr
-    add_callback_group ||--o{ callback_group_add_service : callback_group_addr
-    add_callback_group ||--o{ callback_group_add_client : callback_group_addr
 
     callback_group_to_executor_entity_collector ||--o{ callback_group_add_timer : callback_group_addr
     callback_group_to_executor_entity_collector ||--o{ callback_group_add_subscription : callback_group_addr
@@ -5170,9 +5045,7 @@ By binding these addresses, <abbr title="Chain-Aware ROS Evaluation Tool">CARET<
     callback_group_add_timer ||--|| TIMER_HANDLE : callback_group_addr
     callback_group_add_subscription ||--|| SUBSCRIPTION_HANDLE : callback_group_addr
     callback_group_add_service ||--|| SERVICE_HANDLE : callback_group_addr
-    callback_group_add_client ||--|| CLIENT_HANDLE : callback_group_addr
-
-</code></pre>
+    callback_group_add_client ||--|| CLIENT_HANDLE : callback_group_addr</code></pre>
 <h3 id="trace-point-definition">Trace point definition<a class="headerlink" href="#trace-point-definition" title="Permanent link">#</a></h3>
 <p>The following shows the definition of trace points.
 A handler such as <code>timer_handle</code> or <code>subscription_handle</code> is assigned to a callback group. A callback group belongs to an executor.</p>
@@ -5304,7 +5177,7 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only for iron or later and intra communication.</p>
+<p>Only for intra communication.</p>
 </div>
 <p><prettier-ignore-end></p>
 <hr />
@@ -5319,7 +5192,7 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only for iron or later and intra communication.</p>
+<p>Only for intra communication.</p>
 </div>
 <p><prettier-ignore-end></p>
 <hr />
@@ -5334,7 +5207,7 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <p><prettier-ignore-start></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only for iron or later and intra communication.</p>
+<p>Only for intra communication.</p>
 </div>
 <p><prettier-ignore-end></p>
 <hr />
@@ -5380,12 +5253,6 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <li>void * group_type_name</li>
 <li>int64_t init_timestamp</li>
 </ul>
-<p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This trace point is available after jazzy.</p>
-</div>
-<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2_caretexecutor_entity_collector_to_executor">ros2_caret:executor_entity_collector_to_executor<a class="headerlink" href="#ros2_caretexecutor_entity_collector_to_executor" title="Permanent link">#</a></h4>
 <p>Sampled items</p>
@@ -5394,12 +5261,6 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <li>void * entities_collector_addr</li>
 <li>int64_t init_timestamp</li>
 </ul>
-<p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This trace point is available after jazzy.</p>
-</div>
-<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2_caretconstruct_executor">ros2_caret:construct_executor<a class="headerlink" href="#ros2_caretconstruct_executor" title="Permanent link">#</a></h4>
 <p>[Hooked tracepoints]</p>
@@ -5419,38 +5280,6 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
 <li>char * executor_type_name</li>
 <li>int64_t init_timestamp</li>
 </ul>
-<hr />
-<h4 id="ros2_caretadd_callback_group">ros2_caret:add_callback_group<a class="headerlink" href="#ros2_caretadd_callback_group" title="Permanent link">#</a></h4>
-<p>[Hooked tracepoints]</p>
-<p>Sampled items</p>
-<ul>
-<li>void * executor_addr</li>
-<li>void * callback_group_addr</li>
-<li>char * group_type_name</li>
-<li>int64_t init_timestamp</li>
-</ul>
-<p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This trace point is not available after jazzy.</p>
-</div>
-<p><prettier-ignore-end></p>
-<hr />
-<h4 id="ros2_caretadd_callback_group_static_executor">ros2_caret:add_callback_group_static_executor<a class="headerlink" href="#ros2_caretadd_callback_group_static_executor" title="Permanent link">#</a></h4>
-<p>[Hooked tracepoints]</p>
-<p>Sampled items</p>
-<ul>
-<li>void * entities_collector_addr</li>
-<li>void * callback_group_addr</li>
-<li>char * group_type_name</li>
-<li>int64_t init_timestamp</li>
-</ul>
-<p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This trace point is not available after jazzy.</p>
-</div>
-<p><prettier-ignore-end></p>
 <hr />
 <h4 id="ros2_caretcallback_group_add_timer">ros2_caret:callback_group_add_timer<a class="headerlink" href="#ros2_caretcallback_group_add_timer" title="Permanent link">#</a></h4>
 <p>[Hooked tracepoints]</p>
@@ -5586,12 +5415,12 @@ See <a href="../../runtime_processing/runtime_recording/#tracepoint">Runtime rec
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.expand", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

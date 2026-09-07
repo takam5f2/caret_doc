@@ -607,8 +607,6 @@
       
         
       
-        
-      
     
     
     
@@ -671,34 +669,6 @@
     
   
     Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../installation/manual_installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Manual Installation
   
 
     
@@ -2417,8 +2387,6 @@
       
         
       
-        
-      
     
     
     
@@ -2521,34 +2489,6 @@
     
   
     caret_analyze
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../software_architecture/tilde/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TILDE, a framework tools to detect deadline overrun
   
 
     
@@ -4247,18 +4187,14 @@ The other tracepoints are embedded for sampling timestamps after completion of i
 <li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints introduced by function hooking with LD_PRELOAD</li>
 </ul>
 </li>
-<li>Extended tracepoints<ul>
-<li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints added to the fork of rclcpp</li>
-</ul>
-</li>
 </ul>
 <p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> utilizes some of the tracepoints built-in original <abbr title="Robot Operating System">ROS</abbr> 2.
-Some of the tracepoints are added by hooking with LD_PRELOAD, and rest tracepoints are added to the fork of <abbr title="Robot Operating System">ROS</abbr> 2's rclcpp.
+Some of the tracepoints are added by hooking with LD_PRELOAD.
 In addition to the above, Agnocast defines its own tracepoints. Agnocast initialization tracepoints (e.g. <code>ros2_caret:agnocast_init</code>) are hooked tracepoints, while Agnocast runtime tracepoints (e.g. <code>agnocast:agnocast_publish</code>) are built into the Agnocast library itself.</p>
 <p><prettier-ignore-start></p>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>Please read this section if you are interested in <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-dedicated tracepoints are extended by the forked rclcpp and LD_PRELOAD. <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> would like to add tracepoints by function hooking as possible. LD_PRELOAD is reasonable to hook functions defined in dynamic library, but it cannot be applied to functions by implemented with C++ template. Such template-based implementation is mapped into binary file after it is built or compiled. Builtin rclcpp uses C++ template for some functions like intra-process communication, for example. The forked rclcpp is introduced to add tracepoints to the functions.</p>
+<p>If you are interested in how <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>-specific tracepoints are extended by LD_PRELOAD, please read this section. In Jazzy, tracepoints are handled exclusively through function hooking using LD_PRELOAD. In Humble, on the other hand, in addition to LD_PRELOAD, the necessary tracepoints are added to a fork of rclcpp. This difference in approach arises because while LD_PRELOAD is suitable for hooking functions defined in dynamic libraries, it cannot be applied to functions implemented using C++ templates.</p>
 </div>
 <p><prettier-ignore-end></p>
 
@@ -4360,12 +4296,12 @@ In addition to the above, Agnocast defines its own tracepoints. Agnocast initial
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

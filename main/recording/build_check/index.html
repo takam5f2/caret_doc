@@ -80,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#build-with-caret" class="md-skip">
+        <a href="#build-check" class="md-skip">
           Skip to content
         </a>
       
@@ -607,8 +607,6 @@
       
         
       
-        
-      
     
     
     
@@ -671,34 +669,6 @@
     
   
     Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../installation/manual_installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Manual Installation
   
 
     
@@ -1000,24 +970,6 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Build and check
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1034,58 +986,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#build-a-target-application-with-caret" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Build a target application with CARET
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#check-whether-caretrclcpp-is-applied-to-each-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check whether CARET/rclcpp is applied to each package
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-fix" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to fix
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -2497,8 +2397,6 @@
       
         
       
-        
-      
     
     
     
@@ -2598,34 +2496,6 @@
     
   
     caret_analyze
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TILDE, a framework tools to detect deadline overrun
   
 
     
@@ -4224,47 +4094,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#build-a-target-application-with-caret" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Build a target application with CARET
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#check-whether-caretrclcpp-is-applied-to-each-package" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Check whether CARET/rclcpp is applied to each package
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#how-to-fix" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        How to fix
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -4283,99 +4112,9 @@
   
 
 
-<!-- cspell:ignore Drclcpp Dtracetools ltracetools -->
-
-<h1 id="build-with-caret">Build with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#build-with-caret" title="Permanent link">#</a></h1>
-<h2 id="build-a-target-application-with-caret">Build a target application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#build-a-target-application-with-caret" title="Permanent link">#</a></h2>
-<p>A target application should be built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp to record trace data. If you have already built the application without <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, you have to build the application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp again.</p>
-<p>For building the application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s <code>local_setup.bash</code> should be applied along with <abbr title="Robot Operating System">ROS</abbr> 2's <code>setup.bash</code> as shown below. Also, <code>-DBUILD_TESTING=OFF</code> should be given to build option.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>&lt;path-to-workspace&gt;
-
-<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash<span class="w">  </span><span class="c1"># please keep the order after ROS 2&#39;s setup.bash</span>
-
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF
-</code></pre></div>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">How to fix build errors and caret-rclcpp check errors</p>
-<p>If a build error occurs or a warning is shown by <code>check_caret_rclcpp</code> (described later), please try the following build options. For details on the specific error messages and their causes, see <a href="../../faq/known_issues/#build">Known Issues - Build</a>.</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-Drclcpp_DIR<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-Dtracetools_DIR<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/tracetools/share/tracetools/cmake&quot;</span>
-</code></pre></div>
-<p>or</p>
-<div class="highlight"><pre><span></span><code>colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-DCMAKE_SHARED_LINKER_FLAGS<span class="o">=</span><span class="s2">&quot;-L</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/tracetools/lib -ltracetools&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-DCMAKE_EXE_LINKER_FLAGS<span class="o">=</span><span class="s2">&quot;-L</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/tracetools/lib -ltracetools&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-Drclcpp_DIR<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/rclcpp/share/rclcpp/cmake&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-Dtracetools_DIR<span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/ros2_caret_ws/install/tracetools/share/tracetools/cmake&quot;</span>
-</code></pre></div>
-</div>
-<p><prettier-ignore-end></p>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Reason for building a target application with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</p>
-<p><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is a fork of <a href="https://github.com/ros2/rclcpp"><abbr title="Robot Operating System">ROS</abbr> 2-based rclcpp</a> which has some additional tracepoints defined by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.
-  Some tracepoints must be added to template implementation, which is referred by rclcpp header files, for <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> to record a target application.
-  In order to apply rclcpp which has the additional tracepoints, the application have to be built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp again.
-  Therefore, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot trace the application provided by Ubuntu's aptitude such as <code>demo_nodes_cpp</code>.
-  If you want to trace such pre-build packages, please build them again from source code.</p>
-</div>
-<p><prettier-ignore-end></p>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Reason for giving <code>-DBUILD_TESTING=OFF</code></p>
-<p>To use <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, you need to use forked shared libraries and headers such as <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp.
-  In the test codes, <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not available due to loading priority issues for headers.
-  Depending on the version of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>, conflicts may occur between the shared libraries of
-  ros-rclcpp and the headers of <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp, resulting in compile errors.
-  Therefore, test codes have to be excluded from building.</p>
-</div>
-<p><prettier-ignore-end></p>
-<h2 id="check-whether-caretrclcpp-is-applied-to-each-package">Check whether <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is applied to each package<a class="headerlink" href="#check-whether-caretrclcpp-is-applied-to-each-package" title="Permanent link">#</a></h2>
-<p>You can check whether a target application is successfully built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp using <code>ros2 caret check_caret_rclcpp</code> command.</p>
-<div class="highlight"><pre><span></span><code>ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span class="w"> </span>&lt;path-to-workspace&gt;
-</code></pre></div>
-<table>
-<thead>
-<tr>
-<th>Output Message</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>All packages are built using caret-rclcpp</code></td>
-<td>There is no problem</td>
-</tr>
-<tr>
-<td><code>The following packages have not been built using caret-rclcpp</code></td>
-<td><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied to the listed packages<br> (Please read the next section to fix it)</td>
-</tr>
-</tbody>
-</table>
-<h2 id="how-to-fix">How to fix<a class="headerlink" href="#how-to-fix" title="Permanent link">#</a></h2>
-<p>In case <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied to the package you want to analyze, you need to fix it. The followings show possible causes and solutions.</p>
-<ul>
-<li>Case 1: All packages are listed as <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied<ul>
-<li>Make sure you applied <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s <code>local_setup.bash</code> after <abbr title="Robot Operating System">ROS</abbr> 2's <code>setup.bash</code> (keep the order)</li>
-</ul>
-</li>
-<li>Case 2: Some, but not all, packages are listed as <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp is not applied<ul>
-<li>Make sure you have the following line in <code>package.xml</code> in the listed package<ul>
-<li><code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><prettier-ignore-start></p>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The listed packages are not traced while other packages built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp are properly traced. Therefore, you can ignore this message if you don't need to trace/analyze the listed packages.</p>
-</div>
-<p><prettier-ignore-end></p>
+<h1 id="build-check">Build Check<a class="headerlink" href="#build-check" title="Permanent link">#</a></h1>
+<p>This feature is not required for Jazzy and later.</p>
+<p>For Humble, please refer to <a href="https://github.com/tier4/CARET_doc/releases/tag/v0.7.3">v0.7.3 documentation</a>.</p>
 
 
 
@@ -4475,12 +4214,12 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>

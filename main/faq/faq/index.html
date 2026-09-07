@@ -607,8 +607,6 @@
       
         
       
-        
-      
     
     
     
@@ -671,34 +669,6 @@
     
   
     Installation
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../installation/manual_installation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Manual Installation
   
 
     
@@ -2414,8 +2384,6 @@
       
         
       
-        
-      
     
     
     
@@ -2515,34 +2483,6 @@
     
   
     caret_analyze
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../design/software_architecture/tilde/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    TILDE, a framework tools to detect deadline overrun
   
 
     
@@ -4405,17 +4345,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#message-flow-is-broken-when-using-relaynode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Message flow is broken when using RelayNode
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4769,17 +4698,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#message-flow-is-broken-when-using-relaynode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Message flow is broken when using RelayNode
-      
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -4810,19 +4728,15 @@
 <h3 id="setup-fails">Setup fails<a class="headerlink" href="#setup-fails" title="Permanent link">#</a></h3>
 <ul>
 <li>In case you encounter errors during setup or build process, please make sure to use an appropriate branch for your environment<ul>
-<li><abbr title="Robot Operating System">ROS</abbr> 2 Humble, Ubuntu 22.04: main branch</li>
-<li><abbr title="Robot Operating System">ROS</abbr> 2 Iron, Ubuntu 22.04: main branch</li>
-<li><abbr title="Robot Operating System">ROS</abbr> 2 Jazzy, Ubuntu 24.04: main branch</li>
+<li><abbr title="Robot Operating System">ROS</abbr> 2 Jazzy, Ubuntu 24.04: main branch and release tags</li>
+<li><abbr title="Robot Operating System">ROS</abbr> 2 Humble, Ubuntu 22.04: main branch and release tags</li>
 </ul>
 </li>
 <li>It's also important to delete <code>./build</code> <code>./install</code> and <code>./src</code> directory before rebuilding <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> if you have built <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> using wrong settings</li>
 </ul>
 <h3 id="cli-tool-doesnt-work">CLI tool doesn't work<a class="headerlink" href="#cli-tool-doesnt-work" title="Permanent link">#</a></h3>
 <p>In case CLI tool execution fails, please make sure to perform <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> environment settings</p>
-<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
-
-ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span class="w"> </span>&lt;path-to-workspace&gt;
+<div class="highlight"><pre><span></span><code><span class="nb">source</span><span class="w"> </span>/opt/ros/jazzy/setup.bash
 </code></pre></div>
 <p><prettier-ignore-start></p>
 <div class="admonition warning">
@@ -4831,6 +4745,8 @@ ros2<span class="w"> </span>caret<span class="w"> </span>check_caret_rclcpp<span
 </div>
 <p><prettier-ignore-end></p>
 <h3 id="import-error-caused-by-numpy2">Import error caused by numpy2<a class="headerlink" href="#import-error-caused-by-numpy2" title="Permanent link">#</a></h3>
+<!-- cspell:words numexpr -->
+
 <p>With the release of numpy2, the following warnings may occur depending on the environment.</p>
 <blockquote>
 <p>A module that was compiled using NumPy 1.x cannot be run in
@@ -4838,9 +4754,14 @@ NumPy 2.0.1 as it may crash. To support both 1.x and 2.x
 versions of NumPy, modules must be compiled with NumPy 2.0.
 Some module may need to rebuild instead e.g. with 'pybind11&gt;=2.12'.</p>
 </blockquote>
-<p>To use caret, it is sufficient to update packages using numpy. The packages can be updated by the following command.</p>
-<div class="highlight"><pre><span></span><code>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>numexpr<span class="w"> </span>bottleneck<span class="w"> </span>matplotlib
-</code></pre></div>
+<p><prettier-ignore-start></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><strong>Important Notice for <abbr title="OSS-based self-driving software">Autoware</abbr> and <abbr title="Robot Operating System">ROS</abbr> 2 Users</strong></p>
+<p>In actual <abbr title="Robot Operating System">ROS</abbr> 2 and trace-collection environments such as <abbr title="OSS-based self-driving software">Autoware</abbr>, system-wide dependencies are almost always strongly tied to the NumPy 1.x series.
+  While updating related packages (numexpr, bottleneck, matplotlib, etc.) may bypass the warning in a pure Python environment, migration to or compatibility with NumPy 2.x is not guaranteed or proven in practical <abbr title="OSS-based self-driving software">Autoware</abbr> environments.</p>
+</div>
+<p><prettier-ignore-end></p>
 <h2 id="recording">Recording<a class="headerlink" href="#recording" title="Permanent link">#</a></h2>
 <h3 id="lttng-session-doesnt-start-after-ros2-caret-record"><abbr title="Linux Tracing Tool next generation">LTTng</abbr> session doesn't start after <code>ros2 caret record</code><a class="headerlink" href="#lttng-session-doesnt-start-after-ros2-caret-record" title="Permanent link">#</a></h3>
 <ul>
@@ -4913,16 +4834,13 @@ Some module may need to rebuild instead e.g. with 'pybind11&gt;=2.12'.</p>
 <h2 id="visualization">Visualization<a class="headerlink" href="#visualization" title="Permanent link">#</a></h2>
 <h3 id="result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result">Result (plot, message_flow, etc.) is not outputted, or there seems something wrong with the result<a class="headerlink" href="#result-plot-message_flow-etc-is-not-outputted-or-there-seems-something-wrong-with-the-result" title="Permanent link">#</a></h3>
 <ul>
-<li>Please use the following commands for verification<ul>
-<li><code>ros2 caret check_caret_rclcpp</code> to check if a target application is built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</li>
+<li>Please use the following command for verification<ul>
 <li><code>ros2 caret check_ctf</code> to check if tracing data is recorded properly</li>
 </ul>
 </li>
 <li>Please make sure the followings:<ul>
-<li>A target application is built with <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp</li>
 <li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> environment is set properly before running a target application<ul>
 <li><code>export LD_PRELOAD=$(readlink -f ~/ros2_caret_ws/install/caret_trace/lib/libcaret.so)</code></li>
-<li><code>source ~/ros2_caret_ws/install/local_setup.bash</code></li>
 </ul>
 </li>
 <li><abbr title="Linux Tracing Tool next generation">LTTng</abbr> trace is started before running a target application<ul>
@@ -4944,7 +4862,7 @@ Some module may need to rebuild instead e.g. with 'pybind11&gt;=2.12'.</p>
 </ul>
 <h3 id="parts-of-results-are-not-outputted">Parts of results are not outputted<a class="headerlink" href="#parts-of-results-are-not-outputted" title="Permanent link">#</a></h3>
 <ul>
-<li>If certain nodes are not traced but some nodes are traced, some packages may be built without <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>/rclcpp. Please make sure <code>&lt;depend&gt;rclcpp&lt;/depend&gt;</code> is described in <code>package.xml</code></li>
+<li>If your system utilizes Agnocast communication, please verify that the Agnocast modules have not been built with <abbr title="Linux Tracing Tool next generation">LTTng</abbr> tracing disabled. If <abbr title="Linux Tracing Tool next generation">LTTng</abbr> support is disabled in Agnocast, trace points will not be emitted, preventing <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> from collecting execution data for those paths even if the standard <abbr title="Robot Operating System">ROS</abbr> 2 nodes are correctly instrumented.</li>
 <li>Another possibility is that some nodes can't be analyzed due to <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>'s limitations:<ul>
 <li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot analyze a node which has two or more timer callbacks with the same period time setting</li>
 <li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> cannot analyze a node which has two or more subscription callbacks with the same topic name</li>
@@ -5044,41 +4962,6 @@ Some module may need to rebuild instead e.g. with 'pybind11&gt;=2.12'.</p>
 <li><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr> also provides <code>response_time.to_histogram()</code> API. It creates histogram assuming a new object appears from point C to point A at intervals of histogram bin size</li>
 </ul>
 <p><img alt="response_time" src="../imgs/response_time.drawio.png" /></p>
-<h3 id="message-flow-is-broken-when-using-relaynode">Message flow is broken when using RelayNode<a class="headerlink" href="#message-flow-is-broken-when-using-relaynode" title="Permanent link">#</a></h3>
-<ul>
-<li>Message_flow is sometimes broken when using RelayNode.
-  RelayNode uses GenericPublisher and GenericSubscription instead of the usual Publisher and Subscription.
-  These classes do not have the trace points needed for analysis by <abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr>.</li>
-</ul>
-<ul>
-<li>If you want to record nodes that use GenericPublisher or GenericSubscription, you need to rebuild them with <a href="https://github.com/tier4/rclcpp/tree/humble_tracepoint_added">caret-rclcpp</a> and record them with <code>--light</code> option.
-  Here are the steps to rebuild a RelayNode.</li>
-</ul>
-<ol>
-<li>
-<p>Clone <a href="https://github.com/ros-tooling/topic_tools">topic_tools</a> into your workspace. You can choose ros2_caret_ws for this workspace.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/workspace
-mkdir<span class="w"> </span>src
-<span class="nb">cd</span><span class="w"> </span>src
-git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ros-tooling/topic_tools<span class="w"> </span>-b<span class="w"> </span>humble
-</code></pre></div>
-</li>
-<li>
-<p>Build topic_tools with caret-rclcpp.</p>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/path/to/workspace
-<span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
-<span class="nb">source</span><span class="w"> </span>~/ros2_caret_ws/install/local_setup.bash
-colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Release
-</code></pre></div>
-</li>
-</ol>
-<p>Please make sure to source local_setup.bash of this workspace before you run RelayNode.</p>
-<p><prettier-ignore-start></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The iron version of caret does not support RelayNode analysis because it does not add trace points for Generic communication.</p>
-</div>
-<p><prettier-ignore-end></p>
 
 
 
@@ -5178,12 +5061,12 @@ colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install<spa
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.footer"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
     
   </body>
