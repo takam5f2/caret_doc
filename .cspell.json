@@ -1,5 +1,8 @@
 {
   "import": ["@tier4/cspell-dicts/caret/cspell-ext.json"],
   "ignorePaths": ["PR_HISTORY.md"],
-  "words": ["ciid"]
+  "words": [
+    "ciid",
+    "pygments"
+  ]
 }
