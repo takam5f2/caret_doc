@@ -2,6 +2,36 @@
 
 ## CARET
 
+### v0.8.0 <small>\_ Sep 10, 2026</small> {id = "0.8.0"}
+
+- **Update**: Add dependencies for the ros2-tracing package to package.xml files. ([caret #597](https://github.com/tier4/caret_analyze/pull/597), [caret_trace #330](https://github.com/tier4/caret_trace/pull/330), [ros2caret #220](https://github.com/tier4/ros2caret/pull/220))
+
+- **Feat**: Add a feature to the release script to create a repo file for Jazzy and support multiple distro releases (humble, iron, jazzy). ([caret #239](https://github.com/tier4/caret/pull/239), [caret #241](https://github.com/tier4/caret/pull/241))
+
+- **Fix**: Fix the issue causing deploy_docs ci to fail by stopping file sync to resolve YAML configuration conflicts. ([caret_analyze #600](https://github.com/tier4/caret_analyze/pull/600), [caret_analyze #601](https://github.com/tier4/caret_analyze/pull/601), [caret_analyze #604](https://github.com/tier4/caret_analyze/pull/604), [caret_analyze #605](https://github.com/tier4/caret_analyze/pull/605))
+
+- **Chore**: Remove related files and support following the end of support for ROS 2 Iron. ([caret #242](https://github.com/tier4/caret/pull/242))
+
+- **Fix**: Update dependencies for security (Bokeh, Markdown, Pygments). ([caret_analyze #602](https://github.com/tier4/caret_analyze/pull/602), [caret_doc #385](https://github.com/tier4/caret_doc/pull/385))
+
+- **Chore**: Fix Mypy errors caused by the update to Bokeh 3.8.2. ([caret_analyze #603](https://github.com/tier4/caret_analyze/pull/603))
+
+- **Refactor**: Eliminate internal CycloneDDS source bundling and transition to public APIs, ensuring a clean build environment. ([caret #234](https://github.com/tier4/caret/pull/234), [caret_trace #328](https://github.com/tier4/caret_trace/pull/328))
+
+- **Chore**: Remove the CycloneDDS repository from the release script and .repos templates. ([caret #244](https://github.com/tier4/caret/pull/244))
+
+- **Update**: Set the default ROS distribution to Jazzy for scripts and documentation. ( [caret #4](https://github.com/takam5f2/caret/pull/4), [caret_doc #16](https://github.com/takam5f2/caret_doc/pull/16))
+
+- **Fix**: Add a task to completely remove Bokeh before the visualizer playbook installs the Python module to fix rendering issues. ([caret #247](https://github.com/tier4/caret/pull/247))
+
+- **Fix**: Remove setuptools in requirements.txt to address security alerts. ([caret_analyze #7](https://github.com/takam5f2/caret_analyze/pull/7))
+
+- **Chore**: Set the default ROS distribution to Jazzy for CI workflows across all repositories. ([caret #3](https://github.com/takam5f2/caret/pull/3), [caret_analyze #8](https://github.com/takam5f2/caret_analyze/pull/8), [caret_analyze_cpp_impl #4](https://github.com/takam5f2/caret_analyze_cpp_impl/pull/4), [caret_trace #4](https://github.com/takam5f2/caret_trace/pull/4), [ros2caret #6](https://github.com/takam5f2/ros2caret/pull/6))
+
+- **Fix**: Fix an issue where trace analysis failed in Jazzy (such as ItemNotFoundError due to empty callback groups or service filtering). ([caret_analyze #9](https://github.com/takam5f2/caret_analyze/pull/9), [caret_analyze #10](https://github.com/takam5f2/caret_analyze/pull/10), [caret_analyze #11](https://github.com/takam5f2/caret_analyze/pull/11))
+
+- **Fix**: Change the GitHub authentication method for release_caret.sh from SSH to HTTPS + PAT. ([caret #5](https://github.com/takam5f2/caret/pull/5))
+
 ### v0.7.3 <small>\_ Jun 04, 2026</small> {id = "0.7.3"}
 
 - **Update**: Add an option to skip installing Python packages in the setup script. ([caret #232](https://github.com/tier4/caret/pull/232))
