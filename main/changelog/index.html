@@ -644,6 +644,17 @@
   <a href="#id" class="md-nav__link">
     <span class="md-ellipsis">
       
+        v0.8.0 _ Sep 10, 2026
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         v0.7.3 _ Jun 04, 2026
       
     </span>
@@ -4786,6 +4797,17 @@
   <a href="#id" class="md-nav__link">
     <span class="md-ellipsis">
       
+        v0.8.0 _ Sep 10, 2026
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      
         v0.7.3 _ Jun 04, 2026
       
     </span>
@@ -5425,6 +5447,49 @@
 
 <h1 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permanent link">#</a></h1>
 <h2 id="caret"><abbr title="Chain-Aware ROS Evaluation Tool">CARET</abbr><a class="headerlink" href="#caret" title="Permanent link">#</a></h2>
+<h3 id="id">v0.8.0 <small>_ Sep 10, 2026</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
+<ul>
+<li><strong>Update</strong>: Add dependencies for the ros2-tracing package to package.xml files. (<a href="https://github.com/tier4/caret_analyze/pull/597">caret #597</a>, <a href="https://github.com/tier4/caret_trace/pull/330">caret_trace #330</a>, <a href="https://github.com/tier4/ros2caret/pull/220">ros2caret #220</a>)</li>
+</ul>
+<ul>
+<li><strong>Feat</strong>: Add a feature to the release script to create a repo file for Jazzy and support multiple distro releases (humble, iron, jazzy). (<a href="https://github.com/tier4/caret/pull/239">caret #239</a>, <a href="https://github.com/tier4/caret/pull/241">caret #241</a>)</li>
+</ul>
+<ul>
+<li><strong>Fix</strong>: Fix the issue causing deploy_docs ci to fail by stopping file sync to resolve YAML configuration conflicts. (<a href="https://github.com/tier4/caret_analyze/pull/600">caret_analyze #600</a>, <a href="https://github.com/tier4/caret_analyze/pull/601">caret_analyze #601</a>, <a href="https://github.com/tier4/caret_analyze/pull/604">caret_analyze #604</a>, <a href="https://github.com/tier4/caret_analyze/pull/605">caret_analyze #605</a>)</li>
+</ul>
+<ul>
+<li><strong>Chore</strong>: Remove related files and support following the end of support for <abbr title="Robot Operating System">ROS</abbr> 2 Iron. (<a href="https://github.com/tier4/caret/pull/242">caret #242</a>)</li>
+</ul>
+<ul>
+<li><strong>Fix</strong>: Update dependencies for security (Bokeh, Markdown, Pygments). (<a href="https://github.com/tier4/caret_analyze/pull/602">caret_analyze #602</a>, <a href="https://github.com/tier4/caret_doc/pull/385">caret_doc #385</a>)</li>
+</ul>
+<ul>
+<li><strong>Chore</strong>: Fix Mypy errors caused by the update to Bokeh 3.8.2. (<a href="https://github.com/tier4/caret_analyze/pull/603">caret_analyze #603</a>)</li>
+</ul>
+<ul>
+<li><strong>Refactor</strong>: Eliminate internal CycloneDDS source bundling and transition to public APIs, ensuring a clean build environment. (<a href="https://github.com/tier4/caret/pull/234">caret #234</a>, <a href="https://github.com/tier4/caret_trace/pull/328">caret_trace #328</a>)</li>
+</ul>
+<ul>
+<li><strong>Chore</strong>: Remove the CycloneDDS repository from the release script and .repos templates. (<a href="https://github.com/tier4/caret/pull/244">caret #244</a>)</li>
+</ul>
+<ul>
+<li><strong>Update</strong>: Set the default <abbr title="Robot Operating System">ROS</abbr> distribution to Jazzy for scripts and documentation. ( <a href="https://github.com/takam5f2/caret/pull/4">caret #4</a>, <a href="https://github.com/takam5f2/caret_doc/pull/16">caret_doc #16</a>)</li>
+</ul>
+<ul>
+<li><strong>Fix</strong>: Add a task to completely remove Bokeh before the visualizer playbook installs the Python module to fix rendering issues. (<a href="https://github.com/tier4/caret/pull/247">caret #247</a>)</li>
+</ul>
+<ul>
+<li><strong>Fix</strong>: Remove setuptools in requirements.txt to address security alerts. (<a href="https://github.com/takam5f2/caret_analyze/pull/7">caret_analyze #7</a>)</li>
+</ul>
+<ul>
+<li><strong>Chore</strong>: Set the default <abbr title="Robot Operating System">ROS</abbr> distribution to Jazzy for CI workflows across all repositories. (<a href="https://github.com/takam5f2/caret/pull/3">caret #3</a>, <a href="https://github.com/takam5f2/caret_analyze/pull/8">caret_analyze #8</a>, <a href="https://github.com/takam5f2/caret_analyze_cpp_impl/pull/4">caret_analyze_cpp_impl #4</a>, <a href="https://github.com/takam5f2/caret_trace/pull/4">caret_trace #4</a>, <a href="https://github.com/takam5f2/ros2caret/pull/6">ros2caret #6</a>)</li>
+</ul>
+<ul>
+<li><strong>Fix</strong>: Fix an issue where trace analysis failed in Jazzy (such as ItemNotFoundError due to empty callback groups or service filtering). (<a href="https://github.com/takam5f2/caret_analyze/pull/9">caret_analyze #9</a>, <a href="https://github.com/takam5f2/caret_analyze/pull/10">caret_analyze #10</a>, <a href="https://github.com/takam5f2/caret_analyze/pull/11">caret_analyze #11</a>)</li>
+</ul>
+<ul>
+<li><strong>Fix</strong>: Change the GitHub authentication method for release_caret.sh from SSH to HTTPS + PAT. (<a href="https://github.com/takam5f2/caret/pull/5">caret #5</a>)</li>
+</ul>
 <h3 id="id">v0.7.3 <small>_ Jun 04, 2026</small><a class="headerlink" href="#id" title="Permanent link">#</a></h3>
 <ul>
 <li><strong>Update</strong>: Add an option to skip installing Python packages in the setup script. (<a href="https://github.com/tier4/caret/pull/232">caret #232</a>)</li>
