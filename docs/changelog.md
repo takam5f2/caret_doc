@@ -4,6 +4,9 @@
 
 ### v0.8.0 <small>\_ Sep 10, 2026</small> {id = "0.8.0"}
 
+> **Note (Tenant Migration Notice):**
+> **[Temporary Notice]** The GitHub organization/tenant for the repositories has been temporarily migrated from `tier4` to `takam5f2` (and is planned to be reverted in the future). Please note that while this temporary migration is in effect, **the repository URLs and links within this documentation have not been changed**, and if you are planning your own tenant migration during this period, URL references and dependencies will require careful attention.
+
 - **Update**: Add dependencies for the ros2-tracing package to package.xml files. ([caret #597](https://github.com/tier4/caret_analyze/pull/597), [caret_trace #330](https://github.com/tier4/caret_trace/pull/330), [ros2caret #220](https://github.com/tier4/ros2caret/pull/220))
 
 - **Feat**: Add a feature to the release script to create a repo file for Jazzy and support multiple distro releases (humble, iron, jazzy). ([caret #239](https://github.com/tier4/caret/pull/239), [caret #241](https://github.com/tier4/caret/pull/241))
